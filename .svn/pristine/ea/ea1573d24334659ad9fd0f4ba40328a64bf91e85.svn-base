@@ -1,0 +1,110 @@
+/*-=============================================================================================================================
+�ۼ��� : �μ���
+�ۼ��� : 2021-09-13
+		1. �����ۼ�    				    2021.09.23
+		2. �ڵ����<ArrayList>	��ȯ �ۼ�	2021.09.24  (�뵿��)
+		3. ���׼���					2021.10.01
+		
+		
+		
+=============================================================================================================================*/
+package DTO;
+
+import java.util.ArrayList;
+
+import VO.*;
+//select mno,singer,title,album from musicinfo where genre ='��' order by rand();
+
+
+public class PodlistDTO extends CommonDTO
+{
+	
+	private int totalCount;
+	private ArrayList<PodlistVO> podList;
+	
+	public int getTotalCount()
+	{
+		return totalCount;
+	}
+	
+	public int podlist(String genre)
+	{
+		podList = new ArrayList<PodlistVO>();
+		
+		try
+		{	
+			
+			
+			
+			//DB open
+			this.OpenDB();
+	
+			String sql = "";
+			
+
+			sql  = "select count(*) from musicinfo ";
+			sql += "where genre like '%"+genre+"%' order by rand()";
+			this.RunQuery(sql);
+			this.GetNextResult();
+			totalCount = this.GetInt("total");
+			
+			this.CloseQuery();
+
+
+			sql  = "select mno,singer,title,album,ptime,bpm from musicinfo ";
+			sql += "where genre like '%"+genre+"%' order by rand()";
+			//select�� ����
+			
+			//Query ����
+			this.RunQuery(sql);
+			
+			//rs.next()�޼ҵ�� ��ȸ 
+			while(this.GetNextResult() == true)
+			{			
+				PodlistVO vo = new PodlistVO();
+				vo.setAlbum(this.GetValue("album"));			//�ٹ���
+				vo.setSinger(this.GetValue("singer"));			//������
+				vo.setTitle(this.GetValue("title"));			//Ÿ��Ʋ(����)
+				vo.setMno(this.GetValue("mno"));				//���ǹ�ȣ
+				vo.setPtime(this.GetValue("ptime"));			//���ǽð�
+				
+				//arylist�� vo�� �߰�
+				podList.add(vo);
+			}
+			
+			//Query ����
+			this.CloseQuery();
+			
+			//DB close
+			this.CloseDB();
+			
+		}catch(Exception e)
+		{
+			e.printStackTrace();
+
+		}
+		return podList.size();
+
+	}
+	
+	// ary list���� �޾ƿ� ���� �ִ� �޼ҵ�
+	public PodlistVO getItem(int index)
+	{
+		return (PodlistVO)podList.get(index);
+	}
+	
+	
+	public static void main(String []args)
+	{
+		
+		PodlistDTO dto = new PodlistDTO();
+		PodlistVO   vo = new PodlistVO();
+		dto.podlist("인디");
+		for(int i = 0; i < 30; i++)
+ 		{
+			
+			vo = dto.getItem(i);
+			System.out.println(vo.getTitle());
+ 		}
+	}
+}

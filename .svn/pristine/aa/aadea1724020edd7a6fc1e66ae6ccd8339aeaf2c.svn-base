@@ -1,0 +1,64 @@
+@charset "utf-8";
+/*-------------------join.jsp, join2.jsp 1번째, 2번째 입력체크 스타일 -------------------*/
+.alert_id
+{
+	color: #e07474;
+	width: 200px;
+	margin-left: 69px;
+	font-size: 15px;
+	font-weight: bold;
+	font-family: Malgun Gothic;
+	text-align: left;
+}
+
+.alert_pw
+{
+	color: #e07474;
+	padding-right: 153px;
+	font-size: 15px;
+	font-weight: bold;
+	font-family: Malgun Gothic;
+}
+.alert_pw_cofirm
+{
+	color: #e07474;
+	padding-right: 123px;
+	font-size: 15px;
+	font-weight: bold;
+	font-family: Malgun Gothic;
+}
+
+.alert_gen
+{
+	color: #e07474;
+	padding-left: 96px;
+	font-size: 15px;
+	font-weight: bold;
+	font-family: Malgun Gothic;
+}
+.alert_name
+{
+	color: #e07474;
+	padding-right: 30px;
+	font-size: 15px;
+	font-weight: bold;
+	font-family: Malgun Gothic;
+}
+.alert_bir_day
+{
+	color: #e07474;
+	padding-right: 0px;
+	font-size: 15px;
+	font-weight: bold;
+	font-family: Malgun Gothic;
+}
+.alert_email
+{
+	/*outline-color: #ff0d0d;*/
+	color: #e07474;
+	padding : 5px 123px 0px 0px;
+	font-size: 15px;
+	font-weight: bold;
+	font-family: Malgun Gothic;
+}
+/*---------------------------------------------------------------*/

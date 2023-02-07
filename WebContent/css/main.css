@@ -1,0 +1,1107 @@
+/*
+작성자 : 장가영
+작성일 : 2021-09-01
+*/
+
+/*==================================================================================================*/
+
+/*
+========== main 레이아웃 - body > wrap > header, sidebar, nav, contents, aside, footer ============
+*/
+.Swal-title {
+  color: red;
+}
+body {
+	margin: 0;
+	background-color: #000000;
+	overflow: hidden;
+	font-family: Malgun Gothic;
+}
+
+.wrap {
+	width: 90%;
+	height: 1000px;
+	margin: auto;
+	font-size: 15pt;
+	color: white;
+}
+
+.header {
+	width: 100%;
+	height: 160px;
+	background-color: #000000;
+	display: flex;
+}
+
+.mid-wrap {
+	display: flex;
+	width: 100%;
+	z-index: 0;
+	position: relative;
+}
+
+.mid-wrap #sub-wrap2 {
+	width: 85%;
+}
+
+.sub-wrap:child-nth(1) {
+	flex-basis: 15%;
+	flex-shrink: 0;
+	width: 15%;
+}
+
+.sub-wrap:child-nth(2) {
+	flex-grow: 1;
+	width: 85%;
+}
+
+.sidebar {
+	float: left;
+	width: 271px;
+	height: 700px;
+	background-color: #000000;
+	text-align: left;
+	margin: 0;
+	overflow: auto;
+}
+
+.nav {
+	float: left;
+	width: 100%;
+	height: 40px;
+	background-color: #121212;
+}
+
+#nav {
+	width: 90%;
+	height: 50px;
+	margin: 11px 20px 10px 20px;
+	color: #959595;
+	font-weight: bold;
+	font-size: 11pt;
+}
+
+.contents {
+	float: left;
+	width: 100%;
+	height: 780px;
+	background-color: #121212;
+	overflow: auto;
+	overflow-x: hidden;
+}
+
+.aside {
+	float: left;
+	width: 100%;
+	height: 100px;
+	background-color: #1e1e1e;
+	margin: 0 auto;
+	text-align: center;
+}
+
+/*.footer {
+	float: left;
+	width: 10%;
+	height: 100px;
+	text-align: center;
+	margin-top: 35px;
+	color: #ffffff;
+}
+*/
+/*============================================================================================*/
+
+/* ========================================scroll 스타일 ========================================*/
+::-webkit-scrollbar {
+	width: 12px;
+}
+
+::-webkit-scrollbar-thumb {
+	background-color: #CDCDCD;
+}
+
+::-webkit-scrollbar-track {
+	background-color: #302F2E;
+}
+
+/*==================================================================================================*/
+
+/* ========================================header 스타일 ========================================*/
+.header h1 {
+	display: inline-block;
+}
+
+.header ul, .header li {
+	list-style: none;
+}
+
+.header ul {
+	padding-right: 20px;
+}
+
+.header nav {
+	display: inline-block;
+	margin-left: auto;
+	float: right;
+}
+
+}
+.headerbtn {
+	margin: 10px;
+}
+/*========================================로그인 회원가입 버튼========================================*/
+.headerbtn input {
+	width: 100px;
+	height: 40px;
+	border: 0;
+	outline: none;
+	border-radius: 5px;
+	background: #000000;
+	color: white;
+	font-size: 13pt;
+	letter-spacing: 1px;
+	font-family: Malgun Gothic;
+	font-weight: bold;
+	cursor: pointer;
+}
+
+.headerbtn .fa-2x /*유저 아이콘*/ {
+	margin-top: 20px;
+	color: #959595;
+}
+
+.headerbtn a {
+	color: #ffffff;
+	font-size: 13pt;
+	text-decoration: none;
+}
+
+.headerbtn a:hover, .headerbtn input:hover, .userbtn li:hover {
+	opacity: 0.5;
+}
+
+.userinfo h5 {
+	float: right;
+	font-family: Malgun Gothic;
+	margin-left: 15px;
+	margin-right: 15px;
+	font-size: 15pt;
+	width: 100px;
+}
+
+.userinfo i {
+	font-size: 30pt;
+}
+
+.userbtn {
+	padding-right: 10px;
+	padding-top: 10px;
+	z-index: 200;
+	position: relative;
+	float: left;
+	display: none;
+}
+
+.userbtn li {
+	font-size: 11pt;
+	color: #959595;
+	padding-top: 7px;
+	z-index: 201;
+	position: relative;
+	cursor: pointer;
+	font-family: Malgun Gothic;
+}
+/*==================================================================================================*/
+
+/*========================================aside 스타일============================================ */
+.player audio {
+	width: 70%;
+	height: 78px;
+	line: none;
+	background-color: #000000;
+}
+
+/*==================================================================================================*/
+
+/*======================================== sidebar 스타일 ============================================*/
+.menu-nav, .menu-nav ul, .menu-nav li {
+	list-style: none;
+}
+
+.menu-nav {
+	padding: 4px;
+	margin-left: 10px;
+	width: 15%;
+	height: 100%;
+	padding: 0px;
+}
+
+.menu-nav ul {
+	width: 220px;
+	padding: 10px 0px 10px 0px;
+	margin: 0;
+}
+
+.menu-nav li {
+	padding: 10px;
+	margin: 0;
+}
+
+.menu-nav a {
+	color: #959595;
+	display: block;
+	outline: none;
+	-webkit-border-radius: 4px;
+	-moz-border-radius: 4px;
+	border-radius: 4px;
+	text-decoration: none;
+}
+
+.menu li a:hover {
+	color: #ffffff;
+	opacity: 1;
+}
+
+.menu li {
+	font-size: 18px;
+	line-height: 18px;
+	padding: 10px 0px;
+	margin-bottom: 10px;
+}
+
+.sublist {
+	border-top: solid;
+	border-width: thin;
+	border-color: #959595;
+	width: 200px;
+}
+
+.sublist li {
+	font-size: 15px;
+	line-height: 15px;
+	padding: 10px;
+}
+
+/*============================================================================================*/
+
+/* =================================contents 스타일 ===============================================*/
+
+.container{
+	height: 100%;
+	margin-left: 10px;
+	margin-right: 10px;
+}
+
+.podcast {
+	height: 430px;
+}
+
+.podcast h3 {
+	text-align: left;
+	padding: 0px;
+	clear: both;
+	margin: 15px;
+}
+
+.podcast .podlisttext {
+	text-align: right;
+}
+
+.podcast h6 {
+	text-align: left;
+	margin: 15px;
+	color: #959595;
+}
+
+.podcast a:link {
+	color: #ffffff;
+	text-decoration: none;
+	font-size: 0.7em;
+	padding-right: 20px;
+	padding-bottom: 5px;
+}
+
+.podcast a:visited {
+	color: #ffffff;
+	text-decoration: none;
+}
+
+.podcast a:hover {
+	font-weight: bold;
+}
+
+.podcast ul {
+	margin: 0;
+	width: 100%;
+	height: 80%;
+	text-align: center;
+	padding-left: 0px;
+}
+
+.podcast ul li {
+	list-style: none;
+	border-radius: 5px;
+	float: left;
+	margin: 10px 15px 30px 15px;
+	width: 250px;
+	height: 310px;
+	background-color: #000000;
+}
+
+.podcast ul li:hover {
+	background-color: #252525;
+}
+
+.podcast ul, .podcast li {
+	list-style: none;
+}
+
+.podcast ul li img {
+	padding: 30px 30px 15px 30px;
+	width: 190px;
+	height: 190px;
+	display: block;
+}
+
+.podcast ul li span {
+	font-size: 11pt;
+	font-family: Malgun Gothic;
+	margin: 0;
+}
+
+#albuminfo {
+	height: 55px;
+	text-align: left;
+	margin-left: 28px;
+	margin-right: 28px;
+}
+
+#artist_name {
+	font-size: 11pt;
+	color: #ffffff;
+}
+
+#album_name {
+	font-size: 10pt;
+	color: #959595;
+}
+/*==============================================================================================*/
+
+/* =================================search.jsp 스타일 ============================================*/
+
+.podlisttext h3 {
+	text-align: left;
+	padding: 20px 10px 10px 22px;
+	margin: 0;
+}
+
+.podcastlist ul {
+	margin: 0;
+	width: 99%;
+	height: 280px;
+	text-align: center;
+	padding-left: 5px;
+}
+
+.podcastlist ul li {
+	font-size: 19pt;
+	list-style: none;
+	float: left;
+	margin: 18px;
+	width: 235px;
+	height: 235px;
+	border-radius: 15px;
+	text-align: left;
+	padding: 10px 5px 0px 10px;
+	font-family: Malgun Gothic;
+	overflow: hidden;
+	font-weight: bold;
+}
+
+.podcastlist ul li img {
+	width: 150px;
+	height: 150px;
+	display: block;
+	padding-left: 100px;
+	padding-top: 35px;
+	transform: rotate(20deg);
+}
+
+.podcastlist a {
+	color: #ffffff;
+	display: block;
+	outline: none;
+	-webkit-border-radius: 4px;
+	-moz-border-radius: 4px;
+	border-radius: 4px;
+	text-decoration: none;
+	font-weight: 900;
+	font-family: Malgun Gothic;
+	font-size: 15pt;
+}
+
+.podcastlist li:hover {
+	opacity: 0.5;
+	cursor: pointer;
+}
+
+/*========================================= 검색창 스타일========================================== */
+.searchbtn {
+	width: 300px;
+	height: 60px;
+	vertical-align: midder;
+	white-space: nowrap;
+	position: relative;
+}
+
+.searchbtn input#search {
+	width: 260px;
+	height: 40px;
+	background-color: #1e1e1e;
+	border: none;
+	font-size: 10pt;
+	font-family: Malgun Gothic;
+	float: left;
+	color: #ffffff;
+	padding-left: 10px;
+	border-top-left-radius: 5px;
+	border-bottom-left-radius: 5px;
+	margin-left: 23px;
+	margin-top: 20px;
+}
+
+.searchbtn input#search::-webkit-input-placeholder {
+	color: #65737e;
+}
+
+input#search:focus {
+	position: relative;
+	z-index: 1000;
+	outline: 1px solid #404040;
+}
+
+.searchbtn button.icon {
+	border-top-right-radius: 5px;
+	border-bottom-right-radius: 5px;
+	border: none;
+	background: #1e1e1e;
+	height: 40px;
+	width: 40px;
+	color: #959595;
+	font-size: 8pt;
+	margin-top: 20px;
+	cursor: pointer;
+	padding: 0px;
+	position: relative;
+}
+
+.searchbtn button.icon:hover{
+	opacity: 0.8;
+}
+
+.searchbtn a:link {
+	color: #959595;
+	text-decoration: none;
+	font-size: 0.7em;
+	width: 40px;
+	height: 40px;
+}
+
+.searchbtn a:visited {
+	color: #959595;
+	text-decoration: none;
+}
+
+/*============================================================================================*/
+
+/* ==================================playlist.jsp 스타일 ======================================*/
+
+/* 레이아웃 */
+.p-container1 {
+	height: 230px;
+	background: linear-gradient(to bottom right, #BA5D07, #000000);
+	overflow: hidden;
+}
+
+.p-subcon1 {
+	height: 230px;
+}
+
+.p-subcon1 ul, .p-subcon2 ul {
+	list-style: none;
+}
+
+.p-subcon1 ul {
+	margin: 0;
+}
+
+.p-subcon1 li {
+	text-align: left;
+}
+
+.p-subcon1 span {
+	margin-left: 15px;
+	color: #959595;
+	font-size: 10pt;
+	font-weight: bold;
+}
+
+
+
+.p-subcon2 ul li {
+	float: left;
+	margin-top: 5px;
+}
+
+.p-subcon1 h1 {
+	margin: 0px 0px 15px 0px;
+	padding-top: 90px;
+	font-size: 50pt;
+}
+
+.p-container2 {
+	height: 75px;
+	padding: 0px 20px 0px 10px;
+	overflow: hidden;
+}
+
+.p-subcon2 {
+	height: 75px;
+}
+
+.p-subcon2 ul {
+	height: 0px;
+	margin: 0px;
+	padding-left: 30px;
+}
+
+.p-subcon2 .subline {
+	border-bottom: solid;
+	border-width: thin;
+	border-color: #959595;
+}
+
+.p-container3 {
+	overflow: visible;
+	margin-bottom: 20px;
+	height: 100%;
+}
+
+/* =================================플레이, 좋아요 버튼 스타일============================================ */
+.p-subcon2 .far {
+	border: none;
+	margin-top: 20px;
+	color: #404040;
+}
+
+.p-subcon2 .fas {
+	border: none;
+	margin-top: 20px;
+	color: #006450;
+}
+
+.p-subcon2 i.fa-3x {
+	padding-right: 30px;
+	border: none;
+	margin-top: 10px;
+	color: #006450;
+}
+
+.fa-play-circle:hover {
+	opacity: 0.5;
+}
+
+.p-subcon2 i.fa-2x{
+	margin-right: 25px;
+}
+
+
+/* ======================================플레이리스트 스타일======================================== */
+}
+.p-subcon3 ul, .p-subcon3 li {
+	margin-left: 20px;
+	list-style: none;
+}
+
+.p-subcon3 ul {
+	margin-left: 20px;
+	padding: 0px;
+	height: 35px;
+	list-style: none;
+	margin-right: 20px;
+}
+
+.p-menu {
+	border-bottom: solid;
+	border-width: thin;
+	border-color: #959595;
+	height: 25px;
+	margin-bottom: 25px;
+	margin-left: 20px;
+	margin-right: 20px;
+}
+
+.p-menu li {
+	float: left;
+	text-align: left;
+	font-size: 11pt;
+	color: #959595;
+	height: 40px;
+	margin-top: 0px;
+	margin-bottom: 0px;
+	font-weight: bold;
+}
+
+.p-menu .p-info {
+	width: 2%;
+}
+
+.p-menu .p-no {
+	width: 2%;
+}
+
+.p-menu .p-title {
+	width: 26%;
+}
+
+.p-menu .p-name {
+	width: 23%;
+}
+
+.p-menu .p-album {
+	width: 23%;
+}
+
+.p-menu .p-time {
+	width: 8%;
+}
+
+.p-icon .far {
+	color: #404040;
+	cursor: pointer;
+}
+
+.p-icon .fas {
+	color: #870909;
+}
+
+.p-list {
+	margin: 5px 20px 5px 20px;
+}
+
+.p-list li {
+	float: left;
+	text-align: left;
+	height: 20px;
+	cursor: default;
+	
+}
+
+.p-list .p-no {
+	width: 2%;
+	color: #959595;
+	font-size: 10pt;
+}
+
+.p-list .p-play{
+	width: 2%;
+	color: #959595;
+	font-size: 8pt;
+	margin-top: 3px;
+	cursor: pointer;
+}
+
+
+.p-list .p-play:hover{
+	color: #008080;
+}
+
+.p-list .p-info:hover{
+	opacity: 0.5;
+}
+
+.p-list .p-add:hover{
+	color: #0D4EF2;
+}
+
+.p-list i.fa-heart:hover{
+	color: #870909;
+}
+
+.p-list .p-info {
+	width: 3%;
+	font-size: 10pt;
+	cursor: pointer;
+}
+
+.p-list .p-title {
+	width: 26%;
+	font-color: #ffffff;
+	font-weight: bold;
+	font-size: 10pt;
+}
+
+.p-list .p-name {
+	width: 23%;
+	color: #959595;
+	font-size: 10pt;
+}
+
+.p-list .p-album {
+	width: 23%;
+	color: #959595;
+	font-size: 10pt;
+}
+
+.p-list .p-time {
+	width: 8%;
+	color: #959595;
+	font-size: 10pt;
+}
+
+.p-list .p-icon {
+	width: 3%;
+	font-size: 10pt;
+	cursor: pointer;
+}
+
+.p-list .p-add {
+	width: 20px;
+	font-size: 10pt;
+	cursor: pointer;
+}
+
+ul.add-list {
+	width: 130px;
+	height: 120px;
+	margin-left: 20px;
+	margin-top: -20px;
+	display: none;
+}
+
+.add-list li {
+	font-size: 10pt;
+	color: #959595;
+	cursor: pointer;
+	width: 110px;
+	padding-top: 3px;
+	padding-left: 7px;
+	padding-right: 5px;
+	background-color: #1b1b1b;
+	border-bottom: solid 0.3px #252525;
+}
+
+#add-list {
+	width: 110px;
+}
+
+#add-list:hover {
+	opacity: 0.8;
+}
+
+.p-list:hover {
+	background-color: #252525;
+}
+
+.endline {
+	width: 100%;
+	height: 10px;
+	margin: 20px 0px 20px 0px;
+	border-bottom: solid;
+	border-width: 0.3px;
+	border-color: #959595;
+	list-style: none;
+}
+
+#endline {
+	width: 98%;
+	height: 40px;
+	margin: auto 10px;
+	border-bottom: solid;
+	border-width: 0.3px;
+	border-color: #959595;
+	list-style: none;
+	padding-left: 0px;
+	padding-top: 35px;
+}
+
+/*==================================================================================================*/
+
+/* =========================================likelist.jsp 스타일========================================== */
+.l-subcon .fa-4x {
+	float: left;
+	padding: 0px;
+	margin-top: 95px;
+	margin-right: 20px;
+}
+
+.fa-play a:hover {
+	opacity: 0.5;
+}
+
+.l-subcon span {
+	margin-left: 115px;
+	color: #959595;
+	font-size: 10pt;
+	font-weight: bold;
+}
+
+/*=======================================================================================================*/
+
+/* ======================================makeplaylist.jsp 스타일 ============================================*/
+
+.m-title {
+	float: left;
+	width: 100%;
+}
+
+.m-title div.Rename {
+	width: 85px;
+    float: left;
+    padding-top: 140px;
+    margin-left: 30px;
+    color: #cdcdcd;
+    font-size: 13pt;
+    
+}
+
+div.Rename i:hover {
+	opacity: 0.5;
+	cursor: pointer;
+}
+
+
+.m-title h1 {
+	margin: 0px;
+	padding-top: 90px;
+	font-size: 50pt;
+	float: left;
+}
+/* 
+.m-subcon span#chg-title {
+	font-size: 13pt;
+	margin-right: 20px;
+	margin-left: 0px;
+} */
+
+./* m-subcon i.fa-plus {
+	font-size: 13pt;
+	margin-right: 5px;
+
+}
+
+.m-subcon i.fa-plus:before {
+	margin-right: 5px;
+}
+ */
+.m-subcon span {
+	margin-left: 10px;
+	color: #959595;
+	font-size: 10pt;
+	font-weight: bold;
+}
+
+.m-subcon2 ul {
+	list-style: none;
+	border-top: solid;
+	border-width: thin;
+	border-color: #959595;
+	margin: 35px 28px 28px 28px;
+}
+
+.makilisttext h3 {
+	text-align: left;
+	padding: 0;
+	margin-top: 5px;
+	margin-left: 35px;
+}
+
+.m-searchbtn {
+	width: 300px;
+	vertical-align: midder;
+	white-space: nowrap;
+	position: relative;
+}
+
+.m-searchbtn input#search {
+	width: 260px;
+	height: 40px;
+	background-color: #1e1e1e;
+	border: none;
+	font-size: 10pt;
+	font-family: Malgun Gothic;
+	float: left;
+	color: #ffffff;
+	padding-left: 10px;
+	border-top-left-radius: 5px;
+	border-bottom-left-radius: 5px;
+	margin-left: 35px;
+	margin-top: 20px;
+}
+
+.m-searchbtn input#search::-webkit-input-placeholder {
+	color: #65737e;
+}
+
+.m-searchbtn button.icon {
+	border-top-right-radius: 5px;
+	border-bottom-right-radius: 5px;
+	border: none;
+	background: #1e1e1e;
+	height: 40px;
+	width: 40px;
+	color: #cdcdcd;
+	font-size: 10pt;
+	margin-top: 20px;
+	cursor: pointer;
+	padding: 0px;
+	position: relative;
+}
+
+.m-searchbtn button.icon:hover{
+	opacity: 0.8;
+}
+.m-searchbtn a:link {
+	color: #959595;
+	text-decoration: none;
+	font-size: 0.7em;
+	width: 40px;
+	height: 40px;
+}
+
+.m-searchbtn a:visited {
+	color: #959595;
+	text-decoration: none;
+}
+
+/* ========================================플레이리스트 검색 버튼====================================== */
+.p-subcon2 .sub-searchbtn {
+	margin-top: 10px;
+}
+
+.p-subcon2 li#sub-searchbtn {
+	float: right;
+}
+
+.sub-searchbtn input#search {
+	width: 180px;
+	height: 30px;
+	background-color: #ffffff;
+	border: none;
+	font-size: 10pt;
+	font-family: Malgun Gothic;
+	float: left;
+	color: #CDCDCD;
+	padding-left: 10px;
+	border-top-left-radius: 5px;
+	border-bottom-left-radius: 5px;
+	margin-left: 35px;
+	margin-top: 20px;
+}
+
+.sub-searchbtn input#search::-webkit-input-placeholder {
+	color: #65737e;
+}
+
+.sub-searchbtn button.icon {
+	border-top-right-radius: 5px;
+	border-bottom-right-radius: 5px;
+	border: none;
+	background: #ffffff;
+	height: 30px;
+	width: 30px;
+	color: #959595;
+	font-size: 10pt;
+	margin-top: 20px;
+}
+
+.sub-searchbtn a:link {
+	color: #959595;
+	text-decoration: none;
+	font-size: 0.7em;
+	width: 20px;
+	height: 20px;
+}
+
+.sub-searchbtn a:visited {
+	color: #959595;
+	text-decoration: none;
+}
+
+.sub-searchbtn i.fa-2x {
+	margin: 0px;
+}
+
+/* =================================로고 스타일================================================  */
+.logo {
+	padding-left: 22px;
+}
+
+/* ============================마이페이지 스타일 mypage.jsp======================================= */
+.mypage-info {
+	width: 400px;
+	height: 370px;
+	margin: 0px auto;
+}
+
+.mypage-info ul, .mypage-info li {
+	list-style: none;
+}
+
+.myinfo0 {
+	width: 80%;
+	height: 30px;
+	clear: both;
+	padding: 10px 0px 10px 40px;
+}
+
+.myinfo1 {
+	width: 30%;
+	float: left;
+	text-align: left;
+	color: #959595;
+	font-weight: bold;
+}
+
+.myinfo2 {
+	width: 70%;
+	float: left;
+	text-align: right;
+}
+
+/*===========================오디오플레이어 재생목록 playerlist.jsp===================================*/
+
+.a-container1 {
+	height: 88%;
+	overflow: auto;
+	overflow-x: hidden;
+	margin: auto;
+}
+
+.a-subcon1 {
+	height: 100%;
+}
+
+.a-subcon1 h2, .a-subcon1 h4 {
+	margin-left: 30px;
+}
+
+.a-subcon1 ul{
+	list-style: none;
+	height: 50px;
+	padding-left: 30px;
+}
+
+
+.a-subcon1 ul {
+	height: 40px;
+	margin: 0px;
+	padding-left: 30px;
+}
+
+.a-subcon1 .p-list li {
+	float: left;
+	margin-top: 5px;
+}
+
+
+

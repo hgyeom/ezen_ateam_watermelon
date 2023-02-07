@@ -1,0 +1,46 @@
+<%@ page contentType="text/html;charset=utf-8" %>	
+<%@ include file="../include/head.jsp" %>
+<script type="text/javascript" src="../js/jquery.js"></script>
+<script type='text/javascript' src='../js/jquery.bgiframe.min.js'></script>
+<script type='text/javascript' src='../js/jquery.ajaxQueue.js'></script>
+<script type='text/javascript' src='../js/jquery.autocomplete.js'></script>
+<script type='text/javascript' src='../js/search.js'></script>
+<link rel="stylesheet" type="text/css" href="../css/jquery.autocomplete.css" />
+<!-- ===================================================================== -->
+
+
+   <div class="sub-wrap" id="sub-wrap2">
+	<div class="nav">
+			<div id="nav">  검색하기</div>
+		</div>  
+      <div class="contents">
+      	<div class="searchbtn">
+      		<input type="search" id="search" placeholder="아티스트, 곡 입력">
+      		<button class="icon" onclick="filter()"><i class="fa fa-search fa-2x"></i></a></button>
+      	</div>	
+      	<div class="podlisttext">	
+      		<h3>모두 찾아보기</h3>
+      	</div>
+      	 <% //for(int i=1; i<=3; i++) {%> 	
+         <div class="podcastlist">
+            <ul>
+              <a href="#" onclick ="changeIframeUrl('../list/podlist.jsp?genre=랩/힙합');"><li style="background-color: #BA5D07;">랩/힙합<img src="../img/포크 썸네일.JPG"></li></a>
+              <a href="#" onclick ="changeIframeUrl('../list/podlist.jsp?genre=댄스');"><li style="background-color: #8C1932;">댄스<img src="../img/AKMU.png"></li></a>
+              <a href="#" onclick ="changeIframeUrl('../list/podlist.jsp?genre=록');"><li style="background-color: #907255;">록<img src="../img/록_메탈_썸네일.JPG"></li></a>
+              <a href="#" onclick ="changeIframeUrl('../list/podlist.jsp?genre=국내드라마');"><li style="background-color: #503750;">국내드라마<img src="../img/재즈썸네일.JPG"></li></a>
+              <a href="#" onclick ="changeIframeUrl('../list/podlist.jsp?genre=POP');"><li style="background-color: #006450;">POP<img src="../img/pop썸네일.JPG"></li></a>
+            </ul>
+         </div>  
+         <div class="podcastlist">
+            <ul>
+               <a href="#" onclick ="changeIframeUrl('../list/podlist.jsp?genre=발라드');"><li style="background-color: #477D95;">발라드<img src="../img/발라드썸네일.JPG"></li></a>
+           	   <a href="#" onclick ="changeIframeUrl('../list/podlist.jsp?genre=RaB');"><li style="background-color: #FFC864;">R&B<img src="../img/R&B썸네일.JPG"></li></a>
+               <a href="#" onclick ="changeIframeUrl('../list/podlist.jsp?genre=인디');"><li style="background-color: #DC148C;">인디<img src="../img/인디음악썸네일.JPG"></li></a>  
+               <a href="#" onclick ="changeIframeUrl('../list/podlist.jsp?genre=포크');"><li style="background-color: #1E3264;">포크<img src="../img/일렉 썸네일.JPG"></li></a>
+            </ul>
+         </div>  
+         <%//} %>            
+      </div>
+    </div>  
+  </div>  
+<%@ include file="../include/tail.jsp" %>

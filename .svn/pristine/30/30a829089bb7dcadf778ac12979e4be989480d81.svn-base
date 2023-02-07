@@ -1,0 +1,205 @@
+<!-- ==============================================================
+작성자 : 김무겸
+최초 작성일 : 2021.09.27
+		1. 좌측 메뉴 플레이리스트 출력을 위한 vo, dto 통합(myplaylist,playlist) 	- 김무겸	  210927
+		2. 팟리스트 세션을 헤드에 받아오는 작업 								 	- 두성수	  210927
+		3. uno값 받아와서 계정마다 플레이리스트 다르게 출력							- 김무겸       210929
+		
+=============================================================== -->
+<%@ page contentType="text/html;charset=utf-8" %>
+<%@ page import="VO.*" %>
+<%@ page import="DTO.*" %>
+<%@ page import="java.net.URLEncoder"%>
+<%@ page import="java.sql.*"%>
+<%@ page import="java.util.ArrayList"%>
+<%
+LoginVO login   = (LoginVO)session.getAttribute("login");
+PlaylistVO   vo = null;
+PlaylistDTO dto = new PlaylistDTO();
+
+PlaylistVO  main_vo  = null;
+
+
+int uno = 0;
+int total = 0;
+if(login != null)
+{
+	uno = Integer.parseInt(login.getUno());
+}
+
+
+total = dto.CountPlaylist(uno);
+dto.PlaylistMenu(uno);
+
+
+likelistDTO likedto = new likelistDTO();
+/*===================================================================================
+세션을 리스트 형식으로 받아오는 작업
+====================================================================================*/
+ArrayList<String> ballad  = (ArrayList) session.getAttribute("ballad");
+ArrayList<String> Dance   = (ArrayList) session.getAttribute("Dance");
+ArrayList<String> Hip_hop = (ArrayList) session.getAttribute("Hip_hop");
+ArrayList<String> ost     = (ArrayList) session.getAttribute("ost");
+ArrayList<String> rock    = (ArrayList) session.getAttribute("rock");
+ArrayList<String> RaB     = (ArrayList) session.getAttribute("RaB");
+ArrayList<String> Indie   = (ArrayList) session.getAttribute("Indie");
+ArrayList<String> Folk    = (ArrayList) session.getAttribute("Folk");
+ArrayList<String> pop     = (ArrayList) session.getAttribute("pop");
+
+System.out.println("head.jsp새션유지 확인:"+ login);
+if(login==null)
+{
+	%>
+	<script>
+	
+	window.onload = function(){
+		javascript:GetModalPage('../login/login.jsp');
+	};
+	</script>
+<% 
+}
+%>
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>main</title>
+	<link rel="stylesheet" href="../css/main.css">
+	<link rel="stylesheet" href="../css/modal.css">
+	<link rel="stylesheet" href="../css/join.css">
+	<link rel="stylesheet" href="../css/login.css">
+	<link rel="stylesheet" href="../css/mypage.css">
+	<link href="//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" integrity="sha512-1ycn6IcaQQ40/MKBW2W4Rhis/DbILU74C1vSrLJxCq57o941Ym01SwNsOMqvEBFlcgUa6xLiPY/NS5R+E6ztJQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+	<script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+	<script src="../js/jquery-3.6.0.js"></script>
+	<script src="../js/head.js"></script>
+	<script src="../js/join.js"></script>
+	<script src="../js/list.js"></script>
+	<script src="../js/mypage.js"></script>
+	<script src="../js/rename.js"></script>
+	
+</head>
+
+<script>
+//플레이리스트 생성 ajax
+function MakePlaylist(uno){
+	if( <%=dto.CountPlaylist(uno)%> < 5)
+    {
+	//jQuery에서 선택자역할
+	    $.ajax({
+	    	
+	    	type : 'get',
+	        url : "../list/makeplaylistok.jsp",
+	        dataType: "html",
+			data: "uno="+uno,
+	        success : function(data)
+	        {
+	        	alert("플레이리스트 생성");
+	        	/*const Toast = Swal.mixin
+	        	({
+				  width: 280,
+				  toast: true,
+				  position: 'bottom',
+				  showConfirmButton: true,
+				  timerProgressBar: false
+				});
+	
+				Toast.fire({
+				  icon: 'success',
+				  title: '플레이리스트 생성'
+				});*/
+	        	document.location = "../main/main.jsp";
+	        },
+	        error:function(request, status, error)
+			{
+				alert("error!!");
+			} 
+	    });
+    }else
+    {
+    	alert("플레이리스트는 최대 5개까지 생성이 가능합니다.");
+    	document.location = "../main/main.jsp";	
+    }
+}
+
+</script>
+
+<body>
+   <div class="wrap">
+      <div class="header">
+         <div class="logo">
+            <a href="#" onclick ="changeIframeUrl('../main/main.jsp');"><h1><img class="logo" src="../img/left_top_logo.png"></h1></a> 
+         </div>
+         <nav>
+            <ul>
+				<li class="headerbtn">
+					<span>
+					<%
+					if( login !=null)
+					{
+					%>
+						<span class="userinfo"><a href="#"><i class="fa fa-user fa-2x" aria-hidden="true"></i>&nbsp;<%= login.getUserid() %></a>
+							<ul class="userbtn">
+								<li id="btn-mypage">마이페이지</li>
+								<li id="btn-playlist">내 플레이리스트</li>
+								<li id="btn-logout">로그아웃</li>
+							</ul>
+						</span>
+						
+						
+						<!-- 로그아웃버튼 팀회의후 결정 사안 -->
+						<!--  <span class="userinfo2">	
+							<input type="button" value="LOGOUT"  class="btn-logout" id="btn-logout">
+						</span>
+						 -->
+						 
+						 
+						 
+					<% 
+					}else
+					
+					{
+					%>	
+						<span class="userinfo2">	
+							<input type="button" value="LOGIN" class="btn-login" id="btn-login">
+							<input type="button" value="JOIN"  class="btn-join" id="btn-join">
+						</span>			
+					<%
+					}
+					%>
+						<div class="modal">
+						
+							<!-- -------모달 창 시작 --------------------------------------- -->
+
+							<!-- -------모달 창 종료 --------------------------------------- -->									
+						</div>								
+					</span>	
+               </li>
+            </ul>
+         </nav>
+      </div>
+      <div class="mid-wrap">
+	      <div class="sub-wrap" id="sub-wrap1">
+		      <div class="sidebar">
+		         <div class="menu-nav">
+		           <ul class="menu">
+		               <li onclick ="changeIframeUrl('../main/main.jsp');"><a href="#"><i class="fa fa-home fa-lg" >&nbsp;&nbsp;</i>홈</a></li>
+		               <li onclick ="changeIframeUrl('../search/search.jsp');"><a href="#"><i class="fa fa-search fa-lg">&nbsp;&nbsp;</i>검색하기</a></li>
+		               <li onclick ="changeIframeUrl('../list/likelist.jsp');"><a href="#"><i class="fas fa-heart fa-lg">&nbsp;&nbsp;</i>좋아요 표시한 곡</a></li>
+		               <li onclick ="javascript:MakePlaylist('<%=uno %>');"><a href="#"><i class="fa fa-plus fa-lg">&nbsp;&nbsp;</i>플레이리스트 만들기</a></li>
+		               <div class="subplaylist">
+			               <ul class="sublist">
+			               <%for(int i = 0; i < total; i++)
+			            	 {
+			            	 	vo = dto.getItem(i);
+			            	 	System.out.println("pno : " + vo.getPno());
+			            	 %>
+			               	  <li onclick ="changeIframeUrl('../list/playlist.jsp?pno=<%= vo.getPno()%>&pname=<%= vo.getP_name()%>');"><a href="#"><%= vo.getP_name() + " #"+(i + 1)%></a></li>
+			                  <%} %>
+			               </ul>
+		               </div>
+		            </ul>
+		         </div>
+		      </div>
+	      </div>

@@ -1,0 +1,19 @@
+@charset "utf-8";
+/*-------------------login.jsp 입력체크 스타일 -------------------*/
+.alert_pw
+{
+	color: #e07474;
+	padding-right: 168px;
+	font-size: 15px;
+	font-weight: bold;
+	font-family: Malgun Gothic;
+}
+
+.alert_pw_cofirm
+{
+	color: #e07474;
+	padding-right: 152px;
+	font-size: 15px;
+	font-weight: bold;
+	font-family: Malgun Gothic;
+}

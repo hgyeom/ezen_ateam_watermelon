@@ -1,0 +1,329 @@
+@charset "utf-8";
+/*--------------모달배경 및 모달 컨텐츠 스타일 -----------------------------*/
+.modal {
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	background: rgba(0, 0, 0, 0.7);
+	top: 0;
+	left: 0;
+	display: none;
+	z-index: 200;
+}
+
+.modal_content {
+	width: 450px;
+	height: 600px;
+	background: #282828;
+	border-radius: 10px;
+	position: absolute;
+	top: 20%;
+	left: 40%;
+	z-index: 300;
+	text-align: center;
+	color: #ffffff;
+}
+/* ---------------------추가--------------------------- */
+.modal_title h1 {
+	width: 450px;
+	padding: 30px auto;
+}
+
+input[id="userid"], input[id="userpw"], input[id="userpw_comfirm"] {
+	padding-left: 10px;
+	margin: 15px;
+}
+
+input[id="username"], input[id="bir_day"] {
+	padding: 0px 0px 0px 10px;
+	margin: 20px 6px 10px 10px;
+}
+
+.gender {
+	width: 350px;
+	margin-bottom: 10px;
+}
+
+.gender select {
+	margin-left: 10px;
+	border-radius: 5px;
+	border: 0;
+}
+
+.name {
+	width: 370px;
+}
+
+input[id="email_01"], input[id="email_02"] {
+	padding-left: 10px;
+}
+/* ---------------------추가 끝--------------------------- */
+
+/* 닫기버튼 스타일 */
+.close {
+	color: #ffffff;
+	float: right;
+	font-size: 28px;
+	font-weight: bold;
+	margin-right: 10px;
+}
+
+.close:hover, .close:focus {
+	color: #ff0080;
+	text-decoration: none;
+	cursor: pointer;
+}
+
+/*--------------회원가입 1번째 창 스타일 ---------------------------------*/
+input[id="userid"], input[id="userpw"], input[id="userpw_comfirm"] {
+	width: 300px;
+	height: 40px;
+	border: 0;
+	
+	background: #404040;
+	color: white;
+	font-size: 12pt;
+	letter-spacing: 1px;
+}
+
+/*--------------회원가입 2번째 창 스타일 ---------------------------------*/
+#gender_select {
+	width: 90px;
+	height: 40px;
+	font-size: 12pt;
+	color: white;
+	background: #404040;
+	padding-left: 5px;
+}
+
+.gender, .name, .birthday {
+	text-align: start;
+	margin-left: 50px;
+}
+
+.email_box {
+	text-align: start;
+	margin-left: 40px;
+	height: 70px;
+	margin-top: 20px;
+}
+
+input[id="username"], input[id="bir_day"] {
+	width: 240px;
+	height: 40px;
+	border: 0;
+	
+	background: #404040;
+	color: white;
+	font-size: 12pt;
+	margin-left: 16px;
+}
+/*
+input[id="gender"]
+{
+	width: 90px;
+	height: 20px;
+	color: white;
+	font-size: 8pt;
+
+}
+*/
+input[id="email_01"], input[id="email_02"] {
+	width: 100px;
+	height: 40px;
+	border: 0;
+	
+	background: #404040;
+	color: white;
+	font-size: 11pt;
+	letter-spacing: 1px;
+}
+
+#email_01 {
+	padding-right: 0px;
+	margin-right: 5px;
+}
+
+#email_02 {
+	margin-left: 0px;
+	margin-right: 0px;
+}
+
+#selectEmail {
+	height: 40px;
+	color: white;
+	background: #404040;
+	border-radius: 5px;
+}
+
+/*--------------로그인 , 회원가입 버튼 스타일 ---------------------------------*/
+input[id="Modal_Login_btn"], input[id="Modal_joinnext_btn"], input[id="Modal_joinlast_btn"]
+	{
+	width: 300px;
+	height: 40px;
+	border: 0;
+	outline: none;
+	background: #ffffff;
+	color: #000000;
+	font-size: 12pt;
+	letter-spacing: 4px;
+	border-radius: 20px;
+	font-weight: bold;
+	font-family: malgun-godik;
+}
+
+.modal_content a {
+	color: #959595;
+	text-decoration: none;
+	font-size: 0.8em;
+	padding: 10px auto;
+}
+
+.modal_content a:link {
+	color: #959595;
+}
+
+.modal_content a:hover {
+	color: #ffffff;
+}
+
+/*---------------------음악정보 모달창 스타일---------------------------------*/
+.p-info a:link 
+{
+	color: #959595;
+}
+
+.music-info{
+	width: 400px;
+	height: 470px;
+	margin: 0px auto;
+	font-size: 11pt;
+}
+.music-info ul, .music-info li{
+	list-style: none;
+}
+.music-info0{
+	width: 80%;
+	height: 30px;
+	clear: both;
+	padding: 0px 0px 5px 40px;
+}
+
+ul.music-info-img li img{
+	width: 230px;
+	height: 230px;
+	display: block;
+	margin-left: 9px;
+}
+
+ul.music-info-img{
+	width: 67%;
+	height: 230px;
+	display: block;
+	margin: auto;
+	margin-bottom: 25px;
+	background-color: #1e1e1e;
+}
+
+
+.music-info1{
+	width: 15%;
+	float: left;
+	text-align: left;
+	color: #959595;
+	font-weight: bold;
+}
+.music-info2{
+	width: 85%;
+	float: left;
+	text-align: right;
+}
+/*
+.mypage-info  img
+{
+	width: 150px;
+    height: 150px;
+    display: block;
+    margin-left:auto;
+    margin-right:auto;
+}
+*/
+/* Change the color to your own background color */
+ input[id="userid"]:-webkit-autofill,
+    input[id="userid"]:-webkit-autofill:hover,
+    input[id="userid"]:-webkit-autofill:focus,
+    input[id="userid"]:-webkit-autofill:active 
+{
+     -webkit-box-shadow: 0 0 0px 1000px #404040 inset !important;
+     -webkit-text-fill-color: #fff !important;
+}
+
+
+/*---------------------플레이리스트 이름변경 모달창 스타일---------------------------------*/
+
+
+.modal_content3 {
+	width: 350px;
+	height: 200px;
+	background: #282828;
+	border-radius: 10px;
+	position: absolute;
+	top: 32%;
+	left: 41%;
+	z-index: 300;
+	text-align: center;
+	color: #ffffff;
+}
+
+.modal_title h3{
+	margin-top: 40px;
+}
+input[id="pl_name"] {
+	width: 250px;
+	height: 40px;
+	border: 0;
+	float: left;
+	background: #404040;
+	color: white;
+	font-size: 12pt;
+	letter-spacing: 1px;
+	margin-left: 20px;
+}
+
+.pl_name {
+	color: #e07474;
+	padding-right: 168px;
+	font-size: 10px;
+	font-weight: bold;
+	font-family: Malgun Gothic;
+}
+
+.fa-check{
+	 margin-left: -20px; 
+	 padding-top: 10px; 
+}
+
+.fa-check:hover{
+	color:#008080;
+	cursor: pointer;
+}
+
+.alert_pl_name{
+	font-size: 12pt;
+	color: #959595;
+}
+
+/* input[id="RenamePlaylist_btn"] {
+	width: 50px;
+	height: 40px;
+	border: 0;
+	outline: none;
+	background: #ffffff;
+	color: #000000;
+	font-size: 12pt;
+	letter-spacing: 4px;
+	border-radius: 5px;
+	font-weight: bold;
+	font-family: malgun-godik;
+	float: left;
+} */

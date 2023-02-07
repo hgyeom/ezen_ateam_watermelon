@@ -1,0 +1,159 @@
+/*-=============================================================================================================================
+�ۼ��� : �뵿��
+�ۼ��� : 2021-09-13
+		1. ȸ������HTML�ۼ�    				2021.09.13
+		2. �ּ�ó��						2021.09.16
+=============================================================================================================================*/
+package DTO;
+
+import java.sql.*;
+
+public class CommonDTO 
+{
+	public String mHost     = "192.168.0.70:3306/watermelon";			//DBBASE�̸� ����� �������ֱ�!
+	public String mUserId   = "root";									//mysql ���̵�
+	public String mPassword = "ezen";									//mysql ��й�ȣ
+	
+	public Connection mConnection;
+	public ResultSet  rs;
+	
+	/*-===================//Driver Load=============================================*/
+	public boolean LoadDriver()
+	{
+		try
+		{
+			Class.forName("com.mysql.cj.jdbc.Driver");
+			return true;
+		}catch(Exception e)
+		{
+			e.printStackTrace();
+			return false;
+		}
+	}
+	
+	
+	/*======================//DB Open==========================================*/
+	public boolean OpenDB()
+	{
+		if(LoadDriver() == false)
+		{
+			return false;
+		}
+		
+		String mServer = "jdbc:mysql://" + mHost + "?useUnicode=true&characterEncoding=utf-8&serverTimezone=UTC";
+		
+		try
+		{
+			this.mConnection = 
+					DriverManager.getConnection(mServer,mUserId,mPassword);
+			return true;
+		}catch(Exception e)
+		{
+			e.printStackTrace();
+			return false;
+		}
+	}
+	
+	
+	/*======================//DB Close=============================================*/
+	public void CloseDB()
+	{
+		try
+		{
+			this.mConnection.close();
+		}catch(Exception e)
+		{
+			
+		}
+	}	
+	
+	
+	/*===================// Query ����=============================================*/
+	public boolean RunSQL(String sql) 									//������ : insert, update, delete 	 �޼ҵ� :	executeUpdate() ��ȯ�� : ó���� ���ڵ�(row)�� ����
+	{
+		try
+		{
+			System.out.println("CommonDTO_SQL_RunSQL출력 확인: " + sql);
+			Statement stmt = mConnection.createStatement();
+			stmt.executeUpdate(sql);
+			return true;
+		}catch(Exception e)
+		{
+			e.printStackTrace();
+			return false;
+		}
+	}	
+	
+	/*====================//RunQuery=============================================*/
+	public boolean RunQuery(String sql)									//������ : select    �޼ҵ� : executeQuery()   ��ȯ�� : ResultSet
+	{								
+		try
+		{
+			//System.out.println("CommonDTO_SQL_RunQuery출력 확인: " + sql);
+			Statement stmt = mConnection.createStatement();
+			rs = stmt.executeQuery(sql);			
+			return true;
+		}catch(Exception e)
+		{
+			e.printStackTrace();
+			return false;
+		}
+	}
+	
+	
+	/*===================GetNextResult()����=============================================*/
+	public boolean GetNextResult()										//rs.next()���
+	{
+		try
+		{
+			return rs.next();
+		}catch(Exception e)
+		{
+			return false;
+		}
+	}	
+	
+	
+	/*====================//GetValue() ����=============================================*/
+	public String GetValue(String name)									//getString ��� ���ڿ��� ��´�.
+	{																	//GetNextResult()�� �Ҷ��� ����.
+		try		
+		{
+			return rs.getString(name);
+		}catch(Exception e)
+		{
+			return "";
+		}
+	}
+	
+	
+	/*====================//GetInt() ����==============================================*/
+	public int GetInt(String name)										//getInt ���  ���ڸ� ��´�.	
+	{																	//GetNextResult()�� �Ҷ��� ����
+		try
+		{
+			return rs.getInt(name);
+		}catch(Exception e)
+		{
+			return 0;
+		}
+	}	
+	
+	
+	/*===================//CloseQuery() ============================================*/
+	public void CloseQuery() 
+	{
+		try
+		{
+			rs.close();
+		}catch(Exception e)
+		{
+		}
+	}	
+	
+	/*===================//���÷��̽�=============================================*/
+	public String _R(String value)
+	{
+		return value.replace("'","''");
+	}
+}
